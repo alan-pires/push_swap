@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2021/12/21 20:14:36 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/12/21 20:27:23 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	main()
 	clinkedlist_add_first(s_main.l_stack_a, 20);
 	clinkdedlist_print(s_main.l_stack_a);
 	
-	do_ra(&s_main);
+	do_rra(&s_main);
 	clinkdedlist_print(s_main.l_stack_a);
-	do_ra(&s_main);
+	do_rra(&s_main);
 	clinkdedlist_print(s_main.l_stack_a);
-	do_ra(&s_main);
+	do_rra(&s_main);
 	clinkdedlist_print(s_main.l_stack_a);
 
 	// do_sa(&s_main);

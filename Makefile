@@ -6,7 +6,7 @@
 #    By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/28 20:15:00 by apires-d          #+#    #+#              #
-#    Updated: 2021/12/21 20:12:37 by apires-d         ###   ########.fr        #
+#    Updated: 2021/12/21 20:26:36 by apires-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ INCLUDE = $(INCLUDE_DIR)/push_swap.h
 SRC_DIR = src
 SRC = $(SRC_DIR)/do_swap_actions.c \
 		$(SRC_DIR)/do_rotate_actions.c \
+		$(SRC_DIR)/do_reverse_rotate_actions.c \
+		$(SRC_DIR)/do_push_actions.c \
 		$(SRC_DIR)/create_stacks.c \
 		$(SRC_DIR)/print_action.c \
 
