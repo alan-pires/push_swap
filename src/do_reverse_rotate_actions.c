@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 21:51:56 by apires-d          #+#    #+#             */
-/*   Updated: 2021/12/21 22:00:10 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/12/21 22:00:52 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ void	do_rrb(struct_main *s_main)
 void	do_rrr(struct_main *s_main)
 {
 	do_rra(s_main);
-	do_rra(s_main);
+	do_rrb(s_main);
 }
