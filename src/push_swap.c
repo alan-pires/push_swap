@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2021/12/21 20:27:23 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/12/21 23:20:09 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,34 @@ int	main()
 	clinkedlist_add_first(s_main.l_stack_a, 8);
 	clinkedlist_add_first(s_main.l_stack_a, 11);
 	clinkedlist_add_first(s_main.l_stack_a, 13);
-	clinkedlist_add_first(s_main.l_stack_a, 15);
-	clinkedlist_add_first(s_main.l_stack_a, 20);
+	clinkedlist_add_first(s_main.l_stack_b, 1);
+	clinkedlist_add_first(s_main.l_stack_b, 2);
+	clinkedlist_add_first(s_main.l_stack_b, 3);
 	clinkdedlist_print(s_main.l_stack_a);
+	clinkdedlist_print(s_main.l_stack_b);
+	ft_putstr_fd("\n ======================== \n", 1);
 	
-	do_rra(&s_main);
+	do_pb(&s_main);
 	clinkdedlist_print(s_main.l_stack_a);
-	do_rra(&s_main);
+	clinkdedlist_print(s_main.l_stack_b);
+	do_pb(&s_main);
 	clinkdedlist_print(s_main.l_stack_a);
-	do_rra(&s_main);
+	clinkdedlist_print(s_main.l_stack_b);
+	do_pb(&s_main);
 	clinkdedlist_print(s_main.l_stack_a);
+	clinkdedlist_print(s_main.l_stack_b);
+	do_pb(&s_main);
+	clinkdedlist_print(s_main.l_stack_a);
+	clinkdedlist_print(s_main.l_stack_b);
+	// do_rra(&s_main);
+	// clinkdedlist_print(s_main.l_stack_a);
+	// do_rra(&s_main);
+	// clinkdedlist_print(s_main.l_stack_a);
+	// do_rra(&s_main);
+	// clinkdedlist_print(s_main.l_stack_a);
 
 	// do_sa(&s_main);
-	ft_putstr_fd("\n ======================== \n", 1);
+	// ft_putstr_fd("\n ======================== \n", 1);
 
 
 	// ft_putstr_fd("\n stack b: \n", 1);
