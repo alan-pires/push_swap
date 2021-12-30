@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:18 by apires-d          #+#    #+#             */
-/*   Updated: 2021/12/21 23:15:41 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/12/30 15:13:37 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	do_rr(struct_main *s_main);
 void	do_rra(struct_main *s_main);
 void	do_pa(struct_main *s_main);
 void	do_pb(struct_main *s_main);
+int		check_args(int argc, char *argv[]);
 
 #endif
