@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2021/12/30 15:14:37 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/01/01 11:20:23 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 int	main(int argc, char *argv[])
 {
 	struct_main	s_main;
+	int			*arg_numbers;
 
-
-	check_args(argc, argv);
+	parse_data(argc, argv, &arg_numbers);
 	// create_stacks(&s_main);
 
 	// ft_putstr_fd("\n stack a: \n", 1);
