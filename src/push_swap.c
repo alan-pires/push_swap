@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2022/01/01 21:02:44 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/01/02 20:39:09 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ int	main(int argc, char *argv[])
 {
 	struct_main	s_main;
 	int			*arg_numbers;
-	int	aux = -1;
+	int	aux = 0;
 
 	if (parse_data(argc, argv, &arg_numbers) == TRUE)
 	{
-		while(arg_numbers[++aux])
+		while(arg_numbers[aux])
+		{
 			printf("%d\n", arg_numbers[aux]);
+			aux++;
+		}
+		printf("OK\n");
 	}
 	else
 		printf("failed\n");
