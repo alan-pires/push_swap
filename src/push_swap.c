@@ -6,12 +6,14 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2022/01/03 21:17:38 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/01/04 19:01:31 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdio.h>
+
+static void	count_args(struct_main *s_main);
 
 int	main(int argc, char *argv[])
 {
@@ -19,8 +21,8 @@ int	main(int argc, char *argv[])
 	int			*arg_numbers;
 	int	aux = 0;
 
-
-	if (parse_data(argc, argv, &arg_numbers) == TRUE)
+	s_main.num_qtt = 0;
+	if (parse_data(argc, argv, &arg_numbers, &s_main) == TRUE)
 	{
 		while(arg_numbers[aux])
 		{

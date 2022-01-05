@@ -6,31 +6,23 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:10:29 by apires-d          #+#    #+#             */
-/*   Updated: 2022/01/03 21:52:40 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/01/04 18:42:32 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	has_repeated(int *args);
-static int	is_valid_int(char **args);
-static int	is_number(char **args);
-static int	check_and_parse(char **str_nums, int **arg_numbers);
-
-int	parse_data(int argc, char *argv[], int **arg_numbers)
+int	parse_data(int argc, char *argv[], int **arg_numbers, struct_main *s_main)
 {
 	char	**str_nums;
-	int		i;
 
-	i = 0;
 	if (argc == 2)
 	{
 		str_nums = ft_split(argv[1], ' ');
 		if (is_number(str_nums) == FALSE)
 			return (FALSE);
-		while (str_nums[i])
-			i++;
-		*arg_numbers = ft_calloc(i + 1, sizeof(int));
+		count_args(s_main, str_nums);
+		*arg_numbers = ft_calloc(s_main->num_qtt + 1, sizeof(int));
 		if (*arg_numbers)
 		{
 			if (check_and_parse(str_nums, arg_numbers) == FALSE)
@@ -39,10 +31,12 @@ int	parse_data(int argc, char *argv[], int **arg_numbers)
 		else
 			return (FALSE);
 	}
+	else if (argc > 2)
+		parse_data_plus2(argc, argv, arg_numbers, s_main);
 	return (TRUE);
 }
 
-static int	check_and_parse(char **str_nums, int **arg_numbers)
+int	check_and_parse(char **str_nums, int **arg_numbers)
 {
 	int	i;
 
@@ -56,7 +50,7 @@ static int	check_and_parse(char **str_nums, int **arg_numbers)
 	return (TRUE);
 }
 
-static int	has_repeated(int *args)
+int	has_repeated(int *args)
 {
 	int	i;
 	int	j;
@@ -76,7 +70,7 @@ static int	has_repeated(int *args)
 	return (FALSE);
 }
 
-static int	is_valid_int(char **args)
+int	is_valid_int(char **args)
 {
 	int			i;
 	long long	num;
@@ -91,7 +85,7 @@ static int	is_valid_int(char **args)
 	return (TRUE);
 }
 
-static int	is_number(char **args)
+int	is_number(char **args)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 #    By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/28 20:15:00 by apires-d          #+#    #+#              #
-#    Updated: 2021/12/30 15:13:58 by apires-d         ###   ########.fr        #
+#    Updated: 2022/01/04 22:36:07 by apires-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRC = $(SRC_DIR)/do_swap_actions.c \
 		$(SRC_DIR)/create_stacks.c \
 		$(SRC_DIR)/print_action.c \
 		$(SRC_DIR)/parse_data.c \
+		$(SRC_DIR)/parse_data_plus2.c \
+		$(SRC_DIR)/count_args.c
 
 OBJ_DIR = obj
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
