@@ -6,34 +6,32 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2022/01/04 19:01:31 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/02/26 14:22:35 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdio.h>
 
-static void	count_args(struct_main *s_main);
-
 int	main(int argc, char *argv[])
 {
 	struct_main	s_main;
-	int			*arg_numbers;
-	int	aux = 0;
+	int			aux = 0;
 
 	s_main.num_qtt = 0;
-	if (parse_data(argc, argv, &arg_numbers, &s_main) == TRUE)
+	s_main.arg_numbers = NULL;
+	if (parse_data(argc, argv, &s_main) == TRUE)
 	{
-		while(arg_numbers[aux])
+		while(s_main.arg_numbers[aux])
 		{
-			printf("%d\n", arg_numbers[aux]);
+			printf("%d\n", s_main.arg_numbers[aux]);
 			aux++;
 		}
 		printf("OK\n");
 	}
 	else
 		printf("failed\n");
-	// create_stacks(&s_main);
+	create_stacks(&s_main);
 
 	// ft_putstr_fd("\n stack a: \n", 1);
 	// clinkedlist_add_first(s_main.l_stack_a, 8);
