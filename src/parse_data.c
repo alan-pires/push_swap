@@ -6,33 +6,50 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:10:29 by apires-d          #+#    #+#             */
-/*   Updated: 2022/02/26 14:20:39 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/01 22:31:56 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	parse_data(int argc, char *argv[], struct_main *s_main)
+int	are_arguments_valid(char *argv, struct_main *s_main)
 {
 	char	**str_nums;
 
-	if (argc == 2)
+	str_nums = ft_split(argv, ' ');
+	if (is_number(str_nums) == FALSE)
+		return (FALSE);
+	count_args(s_main, str_nums);
+	s_main->arg_numbers = ft_calloc(s_main->num_qtt + 1, sizeof(int));
+	if (s_main->arg_numbers)
 	{
-		str_nums = ft_split(argv[1], ' ');
-		if (is_number(str_nums) == FALSE)
-			return (FALSE);
-		count_args(s_main, str_nums);
-		s_main->arg_numbers = ft_calloc(s_main->num_qtt + 1, sizeof(int));
-		if (s_main->arg_numbers)
-		{
-			if (check_and_parse(str_nums, &s_main->arg_numbers) == FALSE)
-				return (FALSE);
-		}
-		else
+		if (check_and_parse(str_nums, &s_main->arg_numbers) == FALSE)
 			return (FALSE);
 	}
-	// else if (argc > 2)
-	// 	parse_data_plus2(argc, argv, arg_numbers, s_main);
+	else
+		return (FALSE);
+	return (TRUE);
+}
+
+int	parse_data(int argc, char *argv[], struct_main *s_main)
+{
+	int i;
+
+	i = 0;
+	if (argc == 2)
+	{
+		if (are_arguments_valid(argv[1], s_main) == FALSE)
+			return (FALSE);
+	}
+	else if (argc > 2)
+	{
+		while (argv[++i])
+		{
+			printf("args: .%s.\n", argv[i]);
+			if (are_arguments_valid(argv[i], s_main) == FALSE)
+				return (FALSE);
+		}
+	}
 	return (TRUE);
 }
 

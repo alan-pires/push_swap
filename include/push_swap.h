@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:18 by apires-d          #+#    #+#             */
-/*   Updated: 2022/02/26 14:25:22 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/01 22:30:55 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void	do_pa(struct_main *s_main);
 void	do_pb(struct_main *s_main);
 void	count_args(struct_main *s_main, char **str_nums);
 int		parse_data(int argc, char *argv[], struct_main *s_main);
-int		parse_data_plus2(int argc, char *argv[], struct_main *s_main);
 int		has_repeated(int *args);
 int		is_valid_int(char **args);
 int		is_number(char **args);
 int		check_and_parse(char **str_nums, int **arg_numbers);
+int		are_arguments_valid(char *argv, struct_main *s_main);
 
 #endif
