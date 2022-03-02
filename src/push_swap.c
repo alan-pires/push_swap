@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2022/03/02 17:15:03 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:48:10 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,24 @@ int	main(int argc, char *argv[])
 	struct_main	s_main;
 	int			aux = 0;
 
-	s_main.num_qtt = 0;
-	s_main.arg_numbers = NULL;
-	s_main.num_qtt = argc - 1;
-	s_main.arg_numbers = ft_calloc(s_main.num_qtt + 1, sizeof(int));
-	if (parse_data(argc, argv, &s_main) == TRUE)
+	// if (parse_data(argc, argv, &s_main) == TRUE)
+	// {
+	// 	while(s_main.arg_numbers[aux])
+	// 	{
+	// 		printf("%d\n", s_main.arg_numbers[aux]);
+	// 		aux++;
+	// 	}
+	// 	printf("OK\n");
+	// }
+	// else
+	// 	printf("failed\n");
+	if (parse_data(argc, argv, &s_main) == FALSE)
 	{
-		while(s_main.arg_numbers[aux])
-		{
-			printf("%d\n", s_main.arg_numbers[aux]);
-			aux++;
-		}
-		printf("OK\n");
+		print_error();
+		return (EXIT_FAILURE);
 	}
-	else
-		printf("failed\n");
 	create_stacks(&s_main);
-
+	init_stack_A(&s_main);
 	// ft_putstr_fd("\n stack a: \n", 1);
 	// clinkedlist_add_first(s_main.l_stack_a, 8);
 	// clinkedlist_add_first(s_main.l_stack_a, 11);

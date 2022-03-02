@@ -6,11 +6,29 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:10:29 by apires-d          #+#    #+#             */
-/*   Updated: 2022/03/02 17:14:38 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:33:32 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+static int	init_arg_numbers(char *argv[], struct_main *s_main)
+{
+	char	**str_nums;
+	int		i;
+
+	i = 0;
+	while (argv[++i])
+		str_nums = ft_split(argv[i], ' ');
+	i = 0;
+	while (str_nums[i++])
+		s_main->num_qtt++;
+	s_main->arg_numbers = ft_calloc(s_main->num_qtt + 1, sizeof(int));
+	// dar free no str_nums
+	if (!s_main->arg_numbers)
+		return (FALSE);
+	return (TRUE);
+}
 
 int	are_arguments_valid(char *argv, struct_main *s_main, int pos)
 {
@@ -29,8 +47,7 @@ int	parse_data(int argc, char *argv[], struct_main *s_main)
 	int i;
 
 	i = 0;
-	if (!s_main->arg_numbers)
-		return (FALSE);
+	init_arg_numbers(argv, s_main);
 	if (argc == 2)
 	{
 		if (are_arguments_valid(argv[1], s_main, i) == FALSE)
@@ -57,8 +74,6 @@ int	check_and_parse(char **str_nums, int **arg_numbers, int pos)
 	while (str_nums[++i])
 	{
 		(*arg_numbers)[pos] = ft_atoi(str_nums[i]);
-		// printf("str: %s\n", str_nums[i]);
-		// printf("num: %d\n", (*arg_numbers)[pos]);
 		pos++;
 	}
 	if (has_repeated(*arg_numbers) == TRUE)

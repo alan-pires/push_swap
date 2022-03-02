@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:18 by apires-d          #+#    #+#             */
-/*   Updated: 2022/03/02 17:01:15 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:46:35 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ int		is_valid_int(char **args);
 int		is_number(char **args);
 int		check_and_parse(char **str_nums, int **arg_numbers, int pos);
 int		are_arguments_valid(char *argv, struct_main *s_main, int pos);
+void	init_stack_A(struct_main *s_main);
+void	print_error();
 
 #endif
