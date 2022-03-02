@@ -6,21 +6,20 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:10:29 by apires-d          #+#    #+#             */
-/*   Updated: 2022/03/02 16:07:47 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:14:38 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	are_arguments_valid(char *argv, struct_main *s_main)
+int	are_arguments_valid(char *argv, struct_main *s_main, int pos)
 {
 	char	**str_nums;
 
 	str_nums = ft_split(argv, ' ');
 	if (is_number(str_nums) == FALSE)
 		return (FALSE);
-	count_args(s_main, str_nums);
-	if (check_and_parse(str_nums, &s_main->arg_numbers) == FALSE)
+	if (check_and_parse(str_nums, &s_main->arg_numbers, pos) == FALSE)
 		return (FALSE);
 	return (TRUE);
 }
@@ -30,27 +29,25 @@ int	parse_data(int argc, char *argv[], struct_main *s_main)
 	int i;
 
 	i = 0;
-	s_main->arg_numbers = ft_calloc(s_main->num_qtt + 1, sizeof(int));
 	if (!s_main->arg_numbers)
 		return (FALSE);
 	if (argc == 2)
 	{
-		if (are_arguments_valid(argv[1], s_main) == FALSE)
+		if (are_arguments_valid(argv[1], s_main, i) == FALSE)
 			return (FALSE);
 	}
 	else if (argc > 2)
 	{
 		while (argv[++i])
 		{
-			// printf("args: .%s.\n", argv[i]);
-			if (are_arguments_valid(argv[i], s_main) == FALSE)
+			if (are_arguments_valid(argv[i], s_main, i - 1) == FALSE)
 				return (FALSE);
 		}
 	}
 	return (TRUE);
 }
 
-int	check_and_parse(char **str_nums, int **arg_numbers)
+int	check_and_parse(char **str_nums, int **arg_numbers, int pos)
 {
 	int	i;
 
@@ -58,7 +55,12 @@ int	check_and_parse(char **str_nums, int **arg_numbers)
 		return (FALSE);
 	i = -1;
 	while (str_nums[++i])
-		(*arg_numbers)[i] = ft_atoi(str_nums[i]);
+	{
+		(*arg_numbers)[pos] = ft_atoi(str_nums[i]);
+		// printf("str: %s\n", str_nums[i]);
+		// printf("num: %d\n", (*arg_numbers)[pos]);
+		pos++;
+	}
 	if (has_repeated(*arg_numbers) == TRUE)
 		return (FALSE);
 	return (TRUE);

@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2022/02/26 15:17:10 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:15:03 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int argc, char *argv[])
 
 	s_main.num_qtt = 0;
 	s_main.arg_numbers = NULL;
+	s_main.num_qtt = argc - 1;
+	s_main.arg_numbers = ft_calloc(s_main.num_qtt + 1, sizeof(int));
 	if (parse_data(argc, argv, &s_main) == TRUE)
 	{
 		while(s_main.arg_numbers[aux])
