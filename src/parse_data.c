@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:10:29 by apires-d          #+#    #+#             */
-/*   Updated: 2022/03/01 22:31:56 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:07:47 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,7 @@ int	are_arguments_valid(char *argv, struct_main *s_main)
 	if (is_number(str_nums) == FALSE)
 		return (FALSE);
 	count_args(s_main, str_nums);
-	s_main->arg_numbers = ft_calloc(s_main->num_qtt + 1, sizeof(int));
-	if (s_main->arg_numbers)
-	{
-		if (check_and_parse(str_nums, &s_main->arg_numbers) == FALSE)
-			return (FALSE);
-	}
-	else
+	if (check_and_parse(str_nums, &s_main->arg_numbers) == FALSE)
 		return (FALSE);
 	return (TRUE);
 }
@@ -36,6 +30,9 @@ int	parse_data(int argc, char *argv[], struct_main *s_main)
 	int i;
 
 	i = 0;
+	s_main->arg_numbers = ft_calloc(s_main->num_qtt + 1, sizeof(int));
+	if (!s_main->arg_numbers)
+		return (FALSE);
 	if (argc == 2)
 	{
 		if (are_arguments_valid(argv[1], s_main) == FALSE)
@@ -45,7 +42,7 @@ int	parse_data(int argc, char *argv[], struct_main *s_main)
 	{
 		while (argv[++i])
 		{
-			printf("args: .%s.\n", argv[i]);
+			// printf("args: .%s.\n", argv[i]);
 			if (are_arguments_valid(argv[i], s_main) == FALSE)
 				return (FALSE);
 		}
