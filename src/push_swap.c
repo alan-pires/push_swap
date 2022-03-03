@@ -6,36 +6,51 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 20:39:15 by apires-d          #+#    #+#             */
-/*   Updated: 2022/03/02 20:48:10 by apires-d         ###   ########.fr       */
+/*   Updated: 2022/03/02 23:03:26 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdio.h>
 
+static int	is_already_sorted(struct_main *s_main)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (s_main->arg_numbers[i])
+		i++;
+	i--;
+	while (j < i)
+	{
+		if (s_main->arg_numbers[j] > s_main->arg_numbers[j + 1])
+			return(FALSE);
+		j++;
+	}
+	return (TRUE);
+}
+
 int	main(int argc, char *argv[])
 {
 	struct_main	s_main;
-	int			aux = 0;
 
-	// if (parse_data(argc, argv, &s_main) == TRUE)
-	// {
-	// 	while(s_main.arg_numbers[aux])
-	// 	{
-	// 		printf("%d\n", s_main.arg_numbers[aux]);
-	// 		aux++;
-	// 	}
-	// 	printf("OK\n");
-	// }
-	// else
-	// 	printf("failed\n");
 	if (parse_data(argc, argv, &s_main) == FALSE)
 	{
 		print_error();
 		return (EXIT_FAILURE);
 	}
+	if (is_already_sorted(&s_main) == TRUE)
+	{
+		printf("ja esta ordenado\n");
+		return(EXIT_SUCCESS);
+	}
+	else
+		printf("não esta ordenado\n");
 	create_stacks(&s_main);
 	init_stack_A(&s_main);
+
 	// ft_putstr_fd("\n stack a: \n", 1);
 	// clinkedlist_add_first(s_main.l_stack_a, 8);
 	// clinkedlist_add_first(s_main.l_stack_a, 11);
